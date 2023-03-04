@@ -2,8 +2,8 @@
 #include <bits/stdc++.h>
 #include <string>
 #include <cmath>
-using namespace std;
 #include "guessit.h"
+using namespace std;
 
 //Creation a random number
 int generateRandomNumber(){
@@ -19,17 +19,6 @@ int getPlayerGuess(){
      return guess;
 }
 
-//continue to Play
-bool continuePlay(){
-    cout<<"You want to continue? Press y or n"<<endl;
-    char continueOnegai;
-    cin>>continueOnegai;
-    if (continueOnegai=='y') {
-        return true;
-        }
-    else return false; 
-}
-
  //print answer base on numberPlayerGuess
     void printAnswer(int guess, int secretNumber){
         if(guess>secretNumber) 
@@ -43,9 +32,9 @@ bool continuePlay(){
         else cout<<"Congratulation! You win."<<endl;
         }
 
-//How to Play
-void Gues (){
-    //Creation a random number
+int main()
+{
+     //Creation a random number
      int secretNumber = generateRandomNumber();
      //number getPlayerGuess
      int guess;
@@ -54,14 +43,5 @@ void Gues (){
         printAnswer(guess, secretNumber);
      }
      while (guess != secretNumber);
-    }
-
-int main()
-{
-     do{
-        //Play
-        Gues();
-     }
-     while(continuePlay());
      return 0;
 }
