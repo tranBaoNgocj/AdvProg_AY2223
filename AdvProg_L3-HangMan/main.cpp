@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <string>
 #include <vector>
 #include <ctime>
@@ -53,4 +53,122 @@ int main()
     playAnimation(word, secretWord, correctChars, incorrectGuess, incorrectChars);
 
     return 0;
+}*/#include <bits/stdc++.h>
+#include <cstdlib>
+#define endl '\n'
+
+using namespace std;
+static string words[] = {
+	"meow", "go", "hihi", "fuku", "chottomattekudasai", "kimochi"
+};
+string chooseWord(){
+	srand(time(0));
+	int selectedIndex = rand() % 6;
+	return words[selectedIndex];
 }
+const string FIGURE[] = {
+	" ------------- \n"
+	" | \n"
+	" | \n"
+	" | \n"
+	" | \n"
+	" | \n"
+	" ----- \n",
+	" ------------- \n"
+	" | 	| \n"
+	" | \n"
+	" | \n"
+	" | \n"
+	" | \n"
+	" ----- \n",
+	" ------------- \n"
+	" | 	| \n"
+	" | 	O \n"
+	" | \n"
+	" | \n"
+	" | \n"
+	" ----- \n",
+	" ------------- \n"
+	" | 	| \n"
+	" | 	O \n"
+	" | 	| \n"
+	" | \n"
+	" | \n"
+	" ----- \n",
+	" ------------- \n"
+	" | 	 	  | \n"
+	" | 	 	  O \n"
+	" | 	     /| \n"
+	" | \n"
+	" | \n"
+	" ----- \n",
+	" ------------- \n"
+	" | 	 	  | \n"
+	" | 	 	  O \n"
+	" | 		 /|\\ \n"
+	" | \n"
+	" | \n"
+	" ----- \n",
+	" ------------- \n"
+	" | 	 	  | \n"
+	" | 	 	  O \n"
+	" | 		 /|\\ \n"
+	" | 		 / \n"
+	" | \n"
+	" ----- \n",
+	" ------------- \n"
+	" |    	      | \n"
+	" | 	 	  O \n"
+	" | 		 /|\\ \n"
+	" | 		 / \\ \n"
+	" | \n"
+	" ----- \n"
+};
+void renderGame(string guessedWord, int badGuessCount){
+	cout << FIGURE[badGuessCount] << endl;
+	cout<< guessedWord<<endl;
+	cout<< "Number of wrong guesses: "<< badGuessCount<< endl;
+}
+
+char readAGuess(){
+	cout<<"Your Guess";
+	char guessedChar;
+	cin>> guessedChar;
+	return tolower(guessedChar);
+}
+
+bool contains(string secretWord, char guess){
+	//cout<< guess<<" - "<< secretWord<< endl;
+	//cout<<" * "<< secretWord.find_first_of(guess)<< endl;
+	return(secretWord.find_first_of(guess) < secretWord.length() ? true : false);  
+}
+string update(string guessedWord, string secretWord, char guess){
+	for(int i = secretWord.length() - 1; i >= 0; i--){
+		if(secretWord[i] == guess){
+			guessedWord[i] = guess;
+		}
+	}
+	return guessedWord;
+}
+int main(){
+	string secretWord = chooseWord();
+	string guessedWord = string(secretWord.length(), '-');
+	//cout<< guessedWord;
+	int badGuessCount = 0;
+	do {
+		renderGame(guessedWord, badGuessCount);
+		char guess = readAGuess();
+		if (contains(secretWord, guess))
+			guessedWord = update(guessedWord, secretWord, guess);
+		else badGuessCount++;
+	} while (badGuessCount < 7 && secretWord != guessedWord);
+		renderGame(guessedWord, badGuessCount);
+	if (badGuessCount < 7) 
+		cout << "Congratulations! You win!";
+	else 
+		cout << "You lost. The correct word is " << secretWord;
+	   
+    return 0;
+    }
+
+
