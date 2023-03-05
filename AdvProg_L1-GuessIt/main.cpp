@@ -20,11 +20,11 @@ int getPlayerGuess(){
 }
 
 //continue to Play
-bool continuePlay(){
+bool checkContinuePlaying(){
     cout<<"You want to continue? Press y or n"<<endl;
-    char continueOnegai;
-    cin>>continueOnegai;
-    if (continueOnegai=='y') {
+    char getPlayerOpinion;
+    cin>>getPlayerOpinion;
+    if (getPlayerOpinion=='y') {
         return true;
         }
     else return false; 
@@ -43,25 +43,19 @@ bool continuePlay(){
         else cout<<"Congratulation! You win."<<endl;
         }
 
-//How to Play
-void Gues (){
-    //Creation a random number
-     int secretNumber = generateRandomNumber();
-     //number getPlayerGuess
-     int guess;
-    do {
-        guess = getPlayerGuess();
-        printAnswer(guess, secretNumber);
-     }
-     while (guess != secretNumber);
-    }
-
 int main()
 {
      do{
-        //Play
-        Gues();
+        //Creation a random number
+    int secretNumber = generateRandomNumber();
+        //number getPlayerGuess
+    int guess;
+    do {
+        guess = getPlayerGuess();
+        printAnswer(guess, secretNumber);
+        }
+     while (guess != secretNumber);
      }
-     while(continuePlay());
+     while(checkContinuePlaying());
      return 0;
 }
