@@ -1,6 +1,6 @@
 #include <iostream>
-//#include "hello.h"
+#include "hello.h"
 
 int main(){
-    std::cout << "Game Over!" << std::endl ;
+    std::cout << printGameOver() << std::endl ;
 }
