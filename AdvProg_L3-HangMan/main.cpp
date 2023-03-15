@@ -8,7 +8,7 @@
 #include "hangman.h"
 #include "draw.h"
 
-int main()
+int main() 
 {
     srand((int)time(0));
 
