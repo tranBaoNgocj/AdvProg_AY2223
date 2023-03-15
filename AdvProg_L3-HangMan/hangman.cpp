@@ -4,7 +4,7 @@
 using std::string;
 using std::vector;
 using std::ifstream;
-using std::domain_error;
+using std::domain_error; 
 using std::cin;
 
 /***
