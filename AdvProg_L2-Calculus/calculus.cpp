@@ -42,15 +42,16 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
+    double ErrorNumber =0.0001;
     if (x < 0) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
     else{
-    double sqrtX=x,oldSqrtX=1;
-    while(sqrtX-oldSqrtX){
-        oldSqrtX=sqrtX;
-        sqrtX= (oldSqrtX+(x/oldSqrtX))/2;
+    double sqrtX=x, oldSqrtX=1;
+    while(sqrtX- oldSqrtX>ErrorNumber){
+        oldSqrtX= sqrtX;
+        sqrtX = (oldSqrtX+(x/oldSqrtX))/2;
     }
     return sqrtX;
     }

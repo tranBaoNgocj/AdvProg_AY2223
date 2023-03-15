@@ -13,7 +13,7 @@ using namespace std;
         number (int) : random number in range 1-100
 ***/
 int generateRandomNumber() {
-    return rand() %100+1;
+    return rand()%100+1;
 }
 
 
@@ -26,7 +26,7 @@ int generateRandomNumber() {
 int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
     int guess;
-    cout<<"Your Guess Number ";
+    cout<<"Your Guess Number is ";
     cin>>guess;
     return guess;
 }
@@ -97,7 +97,7 @@ bool checkContinuePlaying(char isContinued) {
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
-    cout<<"You want to continue ?? y/n";
+    cout<<"You want to continue ? y/n";
     cin>>isContinued;
     return isContinued;
 }
