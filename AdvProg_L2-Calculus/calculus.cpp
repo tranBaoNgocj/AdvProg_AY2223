@@ -42,17 +42,5 @@ double mySin(double x)
         double: square root of x
 ***/
 double mySqrt(double x) {
-    if (x < 0) {
-        cout << "Invalid argument" << endl;
-        exit(1);
-    }
-    else{
-        double sqrtX=x,oldSqrtX=1;
-        double const errorNumber = 0.00001;
-    while(abs(sqrtX-oldSqrtX)>errorNumber){
-        oldSqrtX=sqrtX;
-        sqrtX= (oldSqrtX+(x/oldSqrtX))/2;
-    }
-    return sqrtX;
-    }
+    return sqrt(x);
 }
