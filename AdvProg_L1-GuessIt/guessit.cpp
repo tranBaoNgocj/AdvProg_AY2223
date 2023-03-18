@@ -50,11 +50,11 @@ string getAnswer(int number, int randomNumber) {
     string answer;
         if(number>randomNumber) 
         {
-            answer ="Your number is too big.";
+            answer ="Your number is higher.";
             }
         else if(number<randomNumber) 
         {
-            answer = "Your number is too small.";
+            answer = "Your number is lower.";
             }
         else answer = "Congratulation! You win.";
     return answer;
@@ -99,12 +99,7 @@ char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
     cout<<"You want to continue? Press y or n"<<endl;
-    char continueOnegai;
-    cin>>continueOnegai;
-    if (continueOnegai=='y') {
-        return true;
-        }
-    else return false; 
+    cin>>isContinued;
     return isContinued;
 }
 
