@@ -100,7 +100,7 @@ char getPlayerOpinion() {
     char isContinued;
     cout<<"You want to continue? Press y or n"<<endl;
     cin>>isContinued;
-    return isContinued;
+    return tolower(isContinued);
 }
 
 
