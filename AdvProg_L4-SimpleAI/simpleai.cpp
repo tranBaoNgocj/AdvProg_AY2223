@@ -95,16 +95,18 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 {
     char answer;
     //Write your code here
-    char ch= 'a'; int count =0;
+    pair<char,int> ch ={'a',0};
         for( auto x:occurrences){
-            if((x.second > count) && (selectedChars.count(ch) == 0)) {
-                count = x.second;
-                ch = x.first;
+            if(selectedChars.count(x.first)==0){
+                if(x.second > ch.second) {
+                ch.second = x.second;
+                ch.first = x.first;                   
+                }
             }
-        }
-        if(count>0) answer = ch;
-        else answer ='0';
-    return answer;
+            }
+            if(ch.second == 0) answer = '0';
+            else answer = ch.first;
+        return answer ;
 }
 
 /***
