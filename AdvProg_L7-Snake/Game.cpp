@@ -85,7 +85,7 @@ void Game::snakeLeave(Position position)
 {
 	// Suggestion: use setCellType() method in Game class
 	// START CODE HERE
-	setCellType(position, CELL_EMPTY);
+	setCellType(position,CELL_EMPTY);
 	// END CODE HERE
 }
 
@@ -112,10 +112,10 @@ void Game::processUserInput(Direction direction)
  * 
  ***/
 bool Game::canChange(Direction current, Direction next) const {
-	if (	((current == UP || current == DOWN) && (next == UP || next == DOWN) ) 
-		||	((current == LEFT || current == RIGHT) && (next == LEFT || next == RIGHT)) )		
-		return 0; // YOUR CODE HERE
-		return 0;// YOUR CODE HERE
+	if (	((current == UP || current == DOWN) && (next == UP || next == DOWN)) 
+		||	((current == LEFT || current == RIGHT) && (next == LEFT || next == RIGHT)))		
+		return false; // YOUR CODE HERE
+		return true;// YOUR CODE HERE
 }
 
 
